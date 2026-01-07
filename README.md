@@ -33,8 +33,6 @@ The platform is designed to ingest data from multiple heterogeneous sources, sta
 - Orchestration: Flyte
 - Visualization: Power BI
 
-Architecture diagrams are available in the `/architecture` folder.
-
 ---
 
 ## Medallion Architecture
