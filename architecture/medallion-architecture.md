@@ -1,3 +1,4 @@
+```mermaid
 flowchart TB
     subgraph Flyte
         T1[Extract Tasks]
