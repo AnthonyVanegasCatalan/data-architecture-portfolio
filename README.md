@@ -106,10 +106,13 @@ Key challenges addressed:
 - SKU standardization
 - Currency and tax calculations
 - Referential integrity checks
-
-### Gold Layer (Analytics Ready)
 - Dimensional models
 - Fact aggregation
+
+
+### Gold Layer (Analytics Ready)
+- Denormalized models
+- Data Mart
 - Optimized for BI tools (e.g. Power BI)
 
 ---
