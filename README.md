@@ -1,95 +1,183 @@
-# Data Architecture Portfolio
-Anthony Vanegas Data Architecture Portfolio
+# Data Architecture Portfolio – E-Commerce Platform
 
-## Overview
-This repository showcases my experience as a Data Architecture Engineer, focusing on the design and implementation of scalable, cloud-based data platforms on AWS.
-
-The portfolio demonstrates:
-- End-to-end ETL/ELT pipelines
-- Medallion data architecture implementation
-- Data quality and governance practices
-- Workflow orchestration using Flyte
-- AWS-native data services
-
-> Note: All examples use mock data and simplified logic. No production or sensitive data is included.
+## Author
+**Anthony Joshua Vanegas**  
+Data Architecture Engineer  
+AWS | Python | Flyte | Delta Lake | Polars | SQL  
 
 ---
 
-## Architecture Overview
+## Overview
 
-The platform is designed to ingest data from multiple heterogeneous sources, standardize it, and expose curated datasets for analytics and reporting.
+This repository presents a production-grade **Data Architecture and Data Engineering solution** designed for an e-commerce platform operating across multiple countries.
 
-**Data Sources**
-- APIs
-- CSV / Excel files
-- HTML data sources
+The solution demonstrates how to:
+- Design scalable data pipelines
+- Orchestrate workflows using Flyte
+- Implement Medallion Architecture on AWS
+- Enforce data quality and governance
+- Deliver analytics-ready data models
 
-**Core Components**
-- Ingestion: Python-based pipelines
-- Storage: AWS S3 (Bronze, Silver, Gold layers)
-- Processing: AWS Glue & Lambda
-- Governance: AWS Lake Formation
-- Query Engine: AWS Athena
-- Orchestration: Flyte
-- Visualization: Power BI
+> ⚠️ This repository uses **mocked and anonymized examples** derived from real production workloads.  
+> No sensitive data, credentials, or proprietary business logic is exposed.
+
+---
+
+## Business Context
+
+The platform ingests **sales and inventory data** from multiple heterogeneous sources:
+- REST APIs (JSON)
+- XML feeds
+- Historical datasets queried via Athena
+
+Key challenges addressed:
+- High data volume with frequent updates
+- Multiple schemas and formats
+- Idempotent ingestion and reprocessing
+- Strong data quality requirements
+- Multi-country, multi-business logic
+
+---
+
+## Architecture Summary
+
+### Core Design Principles
+- **Cloud-native** architecture on AWS
+- **Medallion Architecture** (Bronze / Silver / Gold)
+- **Idempotent ingestion** using hash-based merge keys
+- **Separation of concerns** (ingestion, processing, governance)
+- **Orchestration-first** design with Flyte
+
+---
+
+## High-Level Architecture
+
+- **Ingestion Layer**
+  - REST API (JSON)
+  - XML feeds
+  - Athena (historical reprocessing)
+
+- **Storage Layer**
+  - AWS S3
+  - Delta Lake format
+  - Partitioned by date and source
+
+- **Processing Layer**
+  - Polars for high-performance transformations
+  - Business rule normalization
+  - Dimensional enrichment
+
+- **Orchestration**
+  - Flyte tasks, workflows, and launch plans
+  - Scheduled and conditional execution
+
+- **Consumption Layer**
+  - Dimensional tables
+  - Fact tables
+  - Analytics-ready datasets
 
 ---
 
 ## Medallion Architecture
 
-The data platform follows the Medallion Architecture pattern:
+### Bronze Layer (Raw)
+- Raw data ingestion
+- Schema preservation
+- Delta Lake tables on S3
+- Idempotent writes using merge keys
+- Partitioned by `pulldate` and `source`
 
-- **Bronze**: Raw ingested data
-- **Silver**: Cleaned and standardized datasets
-- **Gold**: Curated, analytics-ready data models
+### Silver Layer (Validated & Enriched)
+- Data type normalization
+- Business rule application
+- SKU standardization
+- Currency and tax calculations
+- Referential integrity checks
 
-This approach ensures data quality, scalability, and clear data ownership.
+### Gold Layer (Analytics Ready)
+- Dimensional models
+- Fact aggregation
+- Optimized for BI tools (e.g. Power BI)
 
 ---
 
-## ETL / ELT Pipelines
+## Orchestration with Flyte
 
-Reusable ingestion and transformation logic is implemented using Python, following modular and extensible design principles.
-
-Key features:
-- Reusable base ingestion classes
-- Centralized error handling
-- Schema validation
-- Data quality checks before promotion to Silver and Gold layers
-
----
-
-## Orchestration
-
-All pipelines are orchestrated using Flyte, enabling:
-- Dependency management
+The platform uses **Flyte** as the orchestration engine to manage:
+- Task dependencies
 - Retry logic
-- Monitoring and observability
-- Scalable execution
+- Resource allocation
+- Conditional workflows
+- Scheduled executions (cron-based)
+
+### Key Features
+- Modular task design
+- Reusable workflows
+- Support for historical reprocessing
+- Failure policies and notifications
 
 ---
 
-## Governance & Data Quality
+## Ingestion Strategy
 
-Governance is enforced using:
-- AWS Lake Formation for access control
-- Schema validation and quality checks
-- Controlled promotion between data layers
+### Sales Data
+- Weekly extraction windows
+- Parallel execution across countries
+- Schema normalization at ingestion time
+- Deduplication using hash-based merge keys
 
----
-
-## Technology Stack
-
-- **Languages**: Python, SQL
-- **Cloud**: AWS (S3, Glue, Athena, Lambda, Lake Formation)
-- **Orchestration**: Flyte
-- **Visualization**: Power BI
-- **Version Control**: Git
+### Inventory Data
+- XML parsing
+- Dynamic schema handling
+- Concurrent extraction
+- Standardized output schema
 
 ---
 
-## Contact
+## Data Quality & Governance
 
-Anthony Joshua Vanegas 
-a.vanegas@cheil.com
-Data Architecture Engineer
+### Data Quality Gates
+- Schema validation
+- Null checks on critical fields
+- Business rule validation
+- Deduplication and consistency checks
+
+### Governance Strategy
+- Clear data layer ownership
+- Controlled promotion from Bronze → Silver → Gold
+- Audit-friendly transformations
+- Reproducible historical loads
+
+---
+
+## Repository Structure
+
+```text
+data-architecture-portfolio/
+│
+├── README.md
+│
+├── architecture/
+│   ├── architecture-overview.md
+│   └── medallion-architecture.md
+│
+├── orchestration/
+│   ├── workflows.py
+│   └── launch_plan.py
+│
+├── ingestion/
+│   ├── sales_api_ingestion.py
+│   └── stock_xml_ingestion.py
+│
+├── bronze/
+│   └── delta_writer.py
+│
+├── silver/
+│   ├── sales_transformation.py
+│   └── data_quality.py
+│
+├── governance/
+│   └── data_governance.md
+│
+└── utils/
+    └── config_placeholder.py
