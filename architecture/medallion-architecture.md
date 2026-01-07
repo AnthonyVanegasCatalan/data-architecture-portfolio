@@ -14,12 +14,11 @@ flowchart TB
 
     subgraph Silver
         S1[Validated & Enriched Data]
-        S2[Dim Tables]
-        S3[Fact Tables]
     end
 
     subgraph Gold
-        G1[Denormalized Tables]
+        G1[Dim Tables]
+        G2[Fact Tables]
     end
 
     T1 --> T2
@@ -28,7 +27,6 @@ flowchart TB
     T3 --> S1
     S1 --> T4
     S1 --> T5
-    T4 --> S1
-    T5 --> S2
-    S1 --> G1
-    S2 --> G1
+    T4 --> G1
+    T5 --> G2
+
