@@ -9,7 +9,20 @@ AWS | Python | Flyte | Delta Lake | Polars | SQL
 
 ## Overview
 
-This repository presents a production-grade **Data Architecture and Data Engineering solution** designed for an e-commerce platform operating across multiple countries.
+This repository presents a production-grade **Data Architecture and Data Engineering solution** based on the designed for Magento API (Samsung.com) operating across multiple countries. And it also applies to all of our data sources listed below.
+
+- Magento API
+- Mirgor API
+- SLC API
+- SLC RPA
+- COMPUMARKET API
+- BONUS API
+- STIENDA.UY API
+- NICATEL RPA
+- AIMNEXT RPA
+- CLARO PR RPA
+- GSCM RPA
+- ALL FUTURE DATA SOURCES
 
 The solution demonstrates how to:
 - Design scalable data pipelines
