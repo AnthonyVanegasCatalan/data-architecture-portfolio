@@ -20,6 +20,7 @@ flowchart TB
 
     subgraph Gold
         G1[Denormalized Tables]
+        G2[Data Mart]
     end
 
     T1 --> T2
@@ -32,4 +33,5 @@ flowchart TB
     S3 --> T5
     T4 --> G1
     T5 --> G1
+    G1 --> G2
 
