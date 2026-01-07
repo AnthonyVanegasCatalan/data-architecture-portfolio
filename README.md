@@ -197,3 +197,34 @@ data-architecture-portfolio/
 │
 └── utils/
     └── config_placeholder.py
+```
+
+---
+
+## Technology Stack
+
+- Languages: Python, SQL
+- Data Processing: Polars, Pandas
+- Orchestration: Flyte
+- Cloud: AWS (S3, Athena, Secrets Manager)
+- Storage Format: Delta Lake
+- Databases: MySQL / Analytical Warehouse
+- Visualization: Power BI
+
+---
+
+## Key Takeaways
+
+This portfolio demonstrates my ability to:
+- Design and implement scalable data architectures
+- Build production-ready ETL pipelines
+- Apply data governance and quality controls
+- Orchestrate complex workflows reliably
+- Translate business requirements into robust data platforms
+
+---
+
+## Contact
+
+Anthony Joshua Vanegas
+Data Architecture Engineer
