@@ -1,4 +1,4 @@
-# Data Architecture Portfolio – E-Commerce Platform
+# Data Architecture Portfolio
 
 ## Author
 **Anthony Joshua Vanegas**  
