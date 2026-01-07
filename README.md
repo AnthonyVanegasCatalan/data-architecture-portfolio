@@ -90,5 +90,6 @@ Governance is enforced using:
 
 ## Contact
 
-Anthony Joshua Vanegas  
+Anthony Joshua Vanegas 
+a.vanegas@cheil.com
 Data Architecture Engineer
