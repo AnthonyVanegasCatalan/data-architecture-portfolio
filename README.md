@@ -227,5 +227,4 @@ This portfolio demonstrates my ability to:
 ## Contact
 
 Anthony Joshua Vanegas
-a.vanegas@cheil.com
 Data Architecture Engineer
